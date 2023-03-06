@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>React ⚛️</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      function Header(props) {
+        console.log(props);
+        return (
+          <header>
+            <h1>{props.name} Portfolio</h1>
+          </header>
+        );
+      }
+      function Main(props) {
+        console.log(props);
+        return (
+          <ul>
+            <li>Websites</li>
+            <li>Apps</li>
+            <li>SEO</li>
+            <li>{props.item1}</li>
+            <li>{props.item2}</li>
+          </ul>
+        );
+      }
+      function Text(props) {
+        return (
+          <div>
+            <h3>Languages Known: </h3>
+            <ul>
+              {props.langPop.map((hell) => (
+                <li key={hell.id}>{hell.name}</li>
+              ))}
+            </ul>
+          </div>
+        );
+      }
+      function Footer(props) {
+        return (
+          <footer>
+            <p>This page was created in {props.date}</p>
+          </footer>
+        );
+      }
+      const langu = ["PHP", "Javascript", "HTML", "Jquery", "SQL"];
+      const langObject = langu.map((lang, i) => ({ id: i, name: lang }));
+      function App() {
+        return (
+          <React.Fragment>
+            <Header name="Manjot's" />
+            <Main item1="Home Page" item2="Emailer" />
+            <Text langPop={langObject} />
+            <Footer date={new Date().getFullYear()} />
+          </React.Fragment>
+        );
+      }
+
+      ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+  </body>
+</html>

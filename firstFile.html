@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <title>React ⚛️</title>
+  </head>
+  <body>
+    <h1>Getting Started with React</h1>
+    <div id="root"></div>
+    <script type="text/javascript">
+      // const elements = [
+      //   React.createElement("p", null, "I am p1 tag"),
+      //   React.createElement("p", null, "I am p2 tag"),
+      //   React.createElement("p", null, "I am p3 tag keyed"),
+      // ];
+      const elements = ["p tag 1", "p tag 2", "p tag 3"];
+      const keyed = elements.map((ptag) =>
+        React.createElement("p", null, ptag)
+      );
+      // let variable = React.createElement(
+      //   "ul",
+      //   null,
+      //   React.createElement(
+      //     "li",
+      //     { style: { color: "pink" }, id: "li1" },
+      //     "Rose"
+      //   ),
+      //   React.createElement("li", { style: { color: "#23f223" } }, "leaves")
+      // );
+      ReactDOM.render(keyed, document.getElementById("root"));
+    </script>
+  </body>
+</html>
